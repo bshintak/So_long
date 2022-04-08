@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   size_of_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/26 18:38:15 by bshintak          #+#    #+#             */
-/*   Updated: 2022/03/30 16:45:38 by bshintak         ###   ########.fr       */
+/*   Created: 2022/04/08 11:57:33 by bshintak          #+#    #+#             */
+/*   Updated: 2022/04/08 11:57:43 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int	size_map(char **map, int option)
 {
-	t_list	*aux;
+	int	i;
+	int	j;
 
-	if (!*lst)
-		return ;
-	while (*lst)
+	i = 0;
+	while (map[i])
 	{
-		aux = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = aux;
+		j = 0;
+		while (map[i][j])
+			j++;
+		if (option == 2)
+			return (j);
+		i++;
 	}
-	*lst = 0;
+	if (option == 1)
+		return (i);
+	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/18 10:46:00 by bshintak          #+#    #+#              #
-#    Updated: 2022/03/23 11:10:24 by bshintak         ###   ########.fr        #
+#    Updated: 2022/04/08 11:58:11 by bshintak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,13 @@ RM			=	rm -f
 MKD			=	mkdir
 MLXFLAGS	=	-lmlx -framework OpenGL -framework AppKit 
 
-SRC_NAME	=	make_map.c	\
-				create_map.c
+SRC_NAME	=	make_map.c		\
+				create_map.c	\
+				size_of_map.c	\
+				print_map1.c	\
+				print_map2.c	\
+				player_move.c	\
+				main.c
 
 SRC		=	$(addprefix $(SRC_PATH)/, $(SRC_NAME))
 OBJ		=	$(patsubst $(SRC_PATH)/%.c, $(OBJ_PATH)/%.o, $(SRC))
@@ -52,19 +57,23 @@ GET_PATH	= ./Gnl
 $(OBJ_PATH):
 	$(MKD) -p objects
 
+norminette:
+	echo "\x1b[31m[NORMINETTE]\x1b[0m"
+	norminette | egrep -B1 'Error|Warning' | sed ''/Error/s//$(printf "\033[31m\033[4mError\033[0m")/'' | sed ''/Warning/s//$(printf "\033[33m\033[4mWarning\033[0m")/''
+
 clean:
 	make clean -C $(LIBFT_PATH)
 	make clean -C $(LIBPF_PATH)
 	make clean -C $(GET_PATH)
 	$(RM) -r $(OBJ_PATH)
-	echo "\033[33mall $(NAME).o files are removed\033[0m"
+	echo "\033[33mRemoving object files...\033[0m"
 
 fclean: clean
 		make fclean -C $(LIBFT_PATH)
 		make fclean -C $(LIBPF_PATH)
 		make fclean -C $(GET_PATH)
 		$(RM) $(NAME)
-		echo "\033[31m$(NAME) is deleted\033[0m"
+		echo "\033[31mRemoving $(NAME)...\033[0m"
 
 re: fclean all
 

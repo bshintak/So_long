@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/26 18:38:15 by bshintak          #+#    #+#             */
-/*   Updated: 2022/03/30 16:45:38 by bshintak         ###   ########.fr       */
+/*   Created: 2022/04/08 11:48:52 by bshintak          #+#    #+#             */
+/*   Updated: 2022/04/08 11:49:13 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int	main(int argc, char **argv)
 {
-	t_list	*aux;
+	char	**map;
 
-	if (!*lst)
-		return ;
-	while (*lst)
-	{
-		aux = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = aux;
-	}
-	*lst = 0;
+	map = 0;
+	if (argc < 2)
+		return (ft_printf("\e[31mError\n\e[0mYou should choose a file 🥺\n"));
+	if (argc > 2)
+		return (ft_printf("\e[31mError\n\e[0mToo many arguments 🤡\n"));
+	if (argc == 2)
+		map = create_map(argv[1]);
+	make_window(map);
 }
