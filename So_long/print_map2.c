@@ -6,7 +6,7 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:05:15 by bshintak          #+#    #+#             */
-/*   Updated: 2022/04/08 11:19:33 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/09 14:05:09 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,16 @@ void	print_enemy(t_data img, int i, int j)
 	j = j * 64;
 	mlx_put_image_to_window(img.mlx, img.win, img.ground, j, i);
 	mlx_put_image_to_window(img.mlx, img.win, img.enemy, j, i);
+}
+
+void	print_exit2(t_data img, int i, int j)
+{
+	i = i * 64;
+	j = j * 64;
+	(*window()).exit = mlx_xpm_file_to_image((*window()).mlx, EXIT_2,
+			&(*window()).size_x, &(*window()).size_y);
+	mlx_put_image_to_window(img.mlx, img.win, img.ground, j, i);
+	mlx_put_image_to_window(img.mlx, img.win, img.exit, j, i);
 }
 
 void	help_put_images(t_data img, char **map, int i, int j)
@@ -32,6 +42,8 @@ void	help_put_images(t_data img, char **map, int i, int j)
 		print_collectible(img, i, j);
 	if (map[i][j] == 'E')
 		print_exit(img, i, j);
+	if (map[i][j] == 'e')
+		print_exit2(img, i, j);
 	if (map[i][j] == 'X')
 		print_enemy(img, i, j);
 }

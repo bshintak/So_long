@@ -6,7 +6,7 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 12:06:43 by bshintak          #+#    #+#             */
-/*   Updated: 2022/04/08 14:03:35 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/09 16:41:17 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,18 @@
 # define PLAYER_LEFT "./images/mike_left.xpm"
 # define PLAYER_UP "./images/mike_up.xpm"
 # define PLAYER_DOWN "./images/mike_down.xpm"
+
 # define WALL "./images/wall.xpm"
 # define EXIT "./images/exit.xpm"
+# define EXIT_2 "./images/exit2.xpm"
 # define GROUND "./images/ground.xpm"
 # define COLLECTIBLE "./images/cilindro_grito.xpm"
-# define ENEMY "./images/boo4.xpm"
-# define BLOCK_SIZE 64
+
+# define ENEMY "./images/boo_down.xpm"
+# define ENEMY_RIGHT "./images/boo_right.xpm"
+# define ENEMY_LEFT "./images/boo_left.xpm"
+# define ENEMY_UP "./images/boo_up.xpm"
+# define ENEMY_DOWN "./images/boo_down.xpm"
 
 // typedef struct	s_data 
 // {
@@ -86,6 +92,9 @@ typedef struct s_data
 	int		endian;
 }				t_data;
 
+/*	STATIC	*/
+t_data	*window(void);
+
 /*	MAKE MAP	*/
 char	**create_map(char *path);
 void	make_window(char **map);
@@ -105,7 +114,24 @@ int		move_left(char **map);
 int		move_up(char **map);
 int		move_down(char **map);
 
+/*	RULES	*/
+int		check_elements_map(char **map);
+int		rectangular_map(char **map);
+
 int		size_map(char **map, int option);
 int		put_images(t_data img, char **map);
+
+int		num_of_itens(char **map);
+int		finish_exit(char **map);
+void	reset_img(char **map);
+int		leave(void);
+
+int		get_out(char **map);
+int		enemy_move(char **map, int option);
+void	enemy_img_key(char **map, int num);
+void	player_img_key(int num);
+
+int		help_move_player1(int key, char **map);
+int		help_move_player2(int key, char **map);
 
 #endif
