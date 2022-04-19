@@ -6,7 +6,7 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 16:42:27 by bshintak          #+#    #+#             */
-/*   Updated: 2022/04/08 11:20:54 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/18 16:27:02 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ char	**matrix(t_list *list, int i)
 
 	j = 0;
 	tmp = list;
-	mtx = malloc(sizeof(char *) * (i + 2));
+	mtx = malloc(sizeof(char *) * (i + 1));
+	if (!mtx)
+		return (0);
 	tmp = tmp->next;
 	while (tmp != 0)
 	{

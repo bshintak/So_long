@@ -6,7 +6,7 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 10:35:26 by bshintak          #+#    #+#             */
-/*   Updated: 2022/03/21 10:20:34 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/18 15:37:31 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static char	*verif_buffer(char **storage, char **buffer, size_t buffer_len)
 	(*storage) = tmp;
 	return (ret);
 }
+
 static char	*put_storage(char **storage, char **buffer, size_t i)
 {
 	char	*tmp;
@@ -59,6 +60,7 @@ static char	*put_storage(char **storage, char **buffer, size_t i)
 	}
 	return (ret);
 }
+
 static char	*verif_storage(char **storage, size_t size)
 {
 	char	*tmp;
@@ -79,6 +81,7 @@ static char	*verif_storage(char **storage, size_t size)
 	(*storage) = tmp;
 	return (ret);
 }
+
 char	*get_next_line(int fd)
 {
 	static char	*storage;
@@ -94,7 +97,7 @@ char	*get_next_line(int fd)
 	if (!buffer)
 	{
 		buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-		if(!buffer)
+		if (!buffer)
 			return (0);
 		while (ret == NULL && i > 0)
 		{

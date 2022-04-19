@@ -6,7 +6,7 @@
 #    By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/18 10:46:00 by bshintak          #+#    #+#              #
-#    Updated: 2022/04/09 16:14:00 by bshintak         ###   ########.fr        #
+#    Updated: 2022/04/18 12:41:51 by bshintak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,16 +19,17 @@ RM			=	rm -f
 MKD			=	mkdir
 MLXFLAGS	=	-lmlx -framework OpenGL -framework AppKit 
 
-SRC_NAME	=	create_map.c			\
-				make_map.c				\
-				make_map_utils.c		\
-				size_of_map.c			\
-				print_map1.c			\
-				print_map2.c			\
-				player_move.c			\
-				finish_collectible.c	\
-				enemy_move.c			\
-				map_rules.c				\
+SRC_NAME	=	create_map.c					\
+				make_map.c						\
+				make_map_utils.c				\
+				size_of_map.c					\
+				print_map1.c					\
+				print_map2.c					\
+				player_move.c					\
+				finish_collectible.c			\
+				enemy_move.c					\
+				map_rules.c						\
+				map_rules_surrounded_by_walls.c	\
 				main.c
 
 SRC		=	$(addprefix $(SRC_PATH)/, $(SRC_NAME))

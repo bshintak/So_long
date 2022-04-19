@@ -6,7 +6,7 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 11:48:52 by bshintak          #+#    #+#             */
-/*   Updated: 2022/04/09 16:50:41 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/19 16:14:29 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,29 @@ t_data	*window(void)
 	return (&window);
 }
 
+void	error_msg(char *error, char **map)
+{
+	ft_printf(error);
+	free (map);
+	exit(1);
+}
+
 int	main(int argc, char **argv)
 {
 	char	**map;
 
 	map = 0;
 	if (argc < 2)
-		return (ft_printf("\e[31mError\n\e[0mYou should choose a file 🥺\n"));
+		error_msg("\e[31mError\n\e[0mYou should choose a file 🥺\n", map);
 	if (argc > 2)
-		return (ft_printf("\e[31mError\n\e[0mToo many arguments 🤡\n"));
+		error_msg("\e[31mError\n\e[0mToo many arguments 🤡\n", map);
 	if (argc == 2)
 		map = create_map(argv[1]);
-/*
-	if (check_elements_map(map) == 1)
-		return (ft_printf("\e[31mError\n\e[0mIncomplete map 😒\n"));
-	if (rectangular_map(map) == 1)
-		return (ft_printf("\e[31mError\n\e[0mThe map is not rectangular 😫\n"));*/
+	if (ft_strncmp(ft_strrchr(argv[1], '.'), ".ber", 4) != 0)
+		error_msg("\e[31mError\n\e[0mInvalid file type 😡\n", map);
+	check_map(map);
+	check_elem(map);
+	check_walls(map);
+	element_invalid(map);
 	make_window(map);
 }

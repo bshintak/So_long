@@ -6,7 +6,7 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 10:31:51 by bshintak          #+#    #+#             */
-/*   Updated: 2022/04/09 16:03:02 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/19 16:17:17 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,10 @@ int	move_player(int key, char **map)
 	help_move_player1(key, map);
 	help_move_player2(key, map);
 	reset_img(map);
-	finish_exit(map);
+	mlx_string_put((*window()).mlx, (*window()).win, 27, 22,
+		16777215, ft_itoa_lib((*(window())).count));
+	finish_exit(key, map);
+	touch_enemy(key, map);
 	if (key == 53)
 		exit (0);
 	return (0);
@@ -95,6 +98,7 @@ void	make_window(char **map)
 	put_images((*window()), map);
 	mlx_key_hook((*window()).win, move_player, map);
 	mlx_hook((*window()).win, 17, 0, leave, NULL);
+	mlx_string_put((*window()).mlx, (*window()).win, 27, 22,
+		16777215, "0");
 	mlx_loop((*window()).mlx);
-	free(&window);
 }

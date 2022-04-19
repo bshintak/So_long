@@ -6,7 +6,7 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 15:06:20 by bshintak          #+#    #+#             */
-/*   Updated: 2022/04/09 15:20:36 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/18 14:59:38 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,27 @@ int	help_move_player2(int key, char **map)
 		enemy_img_key(map, 2);
 	}
 	return (0);
+}
+
+void	touch_enemy(int key, char **map)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (map[++i])
+	{
+		j = -1;
+		while (map[i][++j])
+		{
+			if (map[i][j] == 'P' && map[i - 1][j] == 'X' && key == 13)
+				exit(0);
+			if (map[i][j] == 'P' && map[i + 1][j] == 'X' && key == 1)
+				exit(0);
+			if (map[i][j] == 'P' && map[i][j - 1] == 'X' && key == 0)
+				exit(0);
+			if (map[i][j] == 'P' && map[i][j + 1] == 'X' && key == 2)
+				exit(0);
+		}
+	}
 }

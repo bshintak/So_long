@@ -6,13 +6,13 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:58:51 by bshintak          #+#    #+#             */
-/*   Updated: 2022/04/09 16:01:27 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/18 17:01:34 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	get_out(char **map)
+int	get_out(int key, char **map)
 {
 	int		i;
 	int		j;
@@ -25,12 +25,14 @@ int	get_out(char **map)
 		{
 			if (map[i][j] == 'P')
 			{
-				if (map[i][j - 1] == 'e' || map[i][j + 1] == 'e'
-					|| map[i + 1][j] == 'e' || map[i - 1][j] == 'e')
-				{
-					free (map);
+				if (map[i][j - 1] == 'e' && key == 0)
 					exit (0);
-				}
+				else if (map[i][j + 1] == 'e' && key == 2)
+					exit (0);
+				else if (map[i + 1][j] == 'e' && key == 1)
+					exit (0);
+				else if (map[i - 1][j] == 'e' && key == 13)
+					exit (0);
 			}
 			j++;
 		}
@@ -85,11 +87,11 @@ int	num_of_itens(char **map)
 	return (num);
 }
 
-int	finish_exit(char **map)
+int	finish_exit(int key, char **map)
 {
 	if (num_of_itens(map) == 0)
 		open_exist(map);
-	get_out(map);
+	get_out(key, map);
 	return (0);
 }
 

@@ -6,22 +6,22 @@
 #    By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/21 14:57:28 by bshintak          #+#    #+#              #
-#    Updated: 2022/03/30 15:50:37 by bshintak         ###   ########.fr        #
+#    Updated: 2022/04/19 16:09:38 by bshintak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	libft.a
 SRC =	ft_lstnew			\
-		ft_lstadd_front		\
-		ft_lstsize			\
 		ft_lstlast			\
 		ft_lstadd_back		\
 		ft_lstdelone		\
 		ft_lstclear			\
-		ft_lstiter			\
-		ft_lstmap			\
-		ft_calloc			\
-		ft_memset
+		ft_strncmp			\
+		ft_strrchr			\
+		ft_strdup_libft		\
+		ft_strlen_libft		\
+		ft_memcpy_libft		\
+		ft_itoa_libft
 
 CC =		gcc
 RM =		rm -f
