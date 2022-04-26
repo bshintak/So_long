@@ -6,16 +6,19 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 10:31:51 by bshintak          #+#    #+#             */
-/*   Updated: 2022/04/19 16:17:17 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/26 16:59:45 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	reset_img(char **map)
+int	reset_img(char **map)
 {
 	mlx_clear_window((*window()).mlx, (*window()).win);
 	put_images((*window()), map);
+	mlx_string_put((*window()).mlx, (*window()).win, 20, 22,
+		0x00FFFFFF, ft_itoa_lib((*(window())).count));
+	return (0);
 }
 
 void	player_img_key(int num)
@@ -67,12 +70,13 @@ int	move_player(int key, char **map)
 	help_move_player1(key, map);
 	help_move_player2(key, map);
 	reset_img(map);
-	mlx_string_put((*window()).mlx, (*window()).win, 27, 22,
-		16777215, ft_itoa_lib((*(window())).count));
 	finish_exit(key, map);
 	touch_enemy(key, map);
 	if (key == 53)
+	{
+		free (map);
 		exit (0);
+	}
 	return (0);
 }
 
@@ -95,10 +99,9 @@ void	make_window(char **map)
 			COLLECTIBLE, &(*window()).size_x, &(*window()).size_y);
 	(*window()).enemy = mlx_xpm_file_to_image((*window()).mlx, ENEMY,
 			&(*window()).size_x, &(*window()).size_y);
-	put_images((*window()), map);
 	mlx_key_hook((*window()).win, move_player, map);
-	mlx_hook((*window()).win, 17, 0, leave, NULL);
-	mlx_string_put((*window()).mlx, (*window()).win, 27, 22,
-		16777215, "0");
+	mlx_hook((*window()).win, 17, 0, leave,
+		(void *)"\e[31mError\n\e[0mYou give up? 😲​​\n");
+	mlx_loop_hook((*window()).mlx, reset_img, map);
 	mlx_loop((*window()).mlx);
 }

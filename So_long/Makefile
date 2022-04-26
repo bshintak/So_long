@@ -6,7 +6,7 @@
 #    By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/18 10:46:00 by bshintak          #+#    #+#              #
-#    Updated: 2022/04/18 12:41:51 by bshintak         ###   ########.fr        #
+#    Updated: 2022/04/19 17:35:05 by bshintak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC			=	gcc
 CFLAGS		=	-Wall -Werror -Wextra
 RM			=	rm -f
 MKD			=	mkdir
-MLXFLAGS	=	-lmlx -framework OpenGL -framework AppKit 
+MLXFLAGS	=	-lmlx -framework OpenGL -framework AppKit
 
 SRC_NAME	=	create_map.c					\
 				make_map.c						\

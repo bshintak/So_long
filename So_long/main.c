@@ -6,7 +6,7 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 11:48:52 by bshintak          #+#    #+#             */
-/*   Updated: 2022/04/19 16:14:29 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/26 16:00:16 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ void	error_msg(char *error, char **map)
 	ft_printf(error);
 	free (map);
 	exit(1);
+}
+
+int	leave(void)
+{
+	exit(0);
+	return (0);
 }
 
 int	main(int argc, char **argv)

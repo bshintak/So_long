@@ -6,7 +6,7 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 16:42:27 by bshintak          #+#    #+#             */
-/*   Updated: 2022/04/18 16:27:02 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/26 15:40:40 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ char	**matrix(t_list *list, int i)
 	mtx = malloc(sizeof(char *) * (i + 1));
 	if (!mtx)
 		return (0);
-	tmp = tmp->next;
 	while (tmp != 0)
 	{
 		mtx[j] = tmp->content;
@@ -42,6 +41,7 @@ char	**create_map(char *path)
 	char	**dora_map;
 
 	i = 0;
+	mapinha = NULL;
 	fd = open(path, O_RDONLY);
 	while (ft_lstadd_back(&mapinha, ft_lstnew(get_next_line(fd))))
 		i++;

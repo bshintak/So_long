@@ -6,13 +6,13 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 15:06:20 by bshintak          #+#    #+#             */
-/*   Updated: 2022/04/18 14:59:38 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/26 12:58:53 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	help_move_player1(int key, char **map)
+void	help_move_player1(int key, char **map)
 {
 	if (key == 0)
 	{
@@ -26,10 +26,9 @@ int	help_move_player1(int key, char **map)
 		move_down(map);
 		enemy_img_key(map, 3);
 	}
-	return (0);
 }
 
-int	help_move_player2(int key, char **map)
+void	help_move_player2(int key, char **map)
 {
 	if (key == 2)
 	{
@@ -43,7 +42,6 @@ int	help_move_player2(int key, char **map)
 		move_up(map);
 		enemy_img_key(map, 2);
 	}
-	return (0);
 }
 
 void	touch_enemy(int key, char **map)
@@ -58,13 +56,13 @@ void	touch_enemy(int key, char **map)
 		while (map[i][++j])
 		{
 			if (map[i][j] == 'P' && map[i - 1][j] == 'X' && key == 13)
-				exit(0);
+				error_msg("YOU LOST 😂​\n", map);
 			if (map[i][j] == 'P' && map[i + 1][j] == 'X' && key == 1)
-				exit(0);
+				error_msg("YOU LOST 😂​\n", map);
 			if (map[i][j] == 'P' && map[i][j - 1] == 'X' && key == 0)
-				exit(0);
+				error_msg("YOU LOST 😂​\n", map);
 			if (map[i][j] == 'P' && map[i][j + 1] == 'X' && key == 2)
-				exit(0);
+				error_msg("YOU LOST 😂​\n", map);
 		}
 	}
 }

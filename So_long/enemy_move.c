@@ -6,7 +6,7 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:57:27 by bshintak          #+#    #+#             */
-/*   Updated: 2022/04/09 15:32:20 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/26 10:50:38 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	enemy_down(char **map, int i, int j)
 	map[i + 1][j] = 'X';
 }
 
-int	enemy_move(char **map, int option)
+void	enemy_move(char **map, int option)
 {
 	int	i;
 	int	j;
@@ -59,5 +59,4 @@ int	enemy_move(char **map, int option)
 		}
 		i++;
 	}
-	return (0);
 }
