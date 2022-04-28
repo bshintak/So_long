@@ -6,11 +6,18 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 15:06:20 by bshintak          #+#    #+#             */
-/*   Updated: 2022/04/26 12:58:53 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/28 10:43:24 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	error_touch_enemy(char *error, char **map)
+{
+	ft_printf(error);
+	free (map);
+	exit(0);
+}	
 
 void	help_move_player1(int key, char **map)
 {
@@ -56,13 +63,13 @@ void	touch_enemy(int key, char **map)
 		while (map[i][++j])
 		{
 			if (map[i][j] == 'P' && map[i - 1][j] == 'X' && key == 13)
-				error_msg("YOU LOST 😂​\n", map);
+				error_touch_enemy("YOU LOST 😂​\n", map);
 			if (map[i][j] == 'P' && map[i + 1][j] == 'X' && key == 1)
-				error_msg("YOU LOST 😂​\n", map);
+				error_touch_enemy("YOU LOST 😂​\n", map);
 			if (map[i][j] == 'P' && map[i][j - 1] == 'X' && key == 0)
-				error_msg("YOU LOST 😂​\n", map);
+				error_touch_enemy("YOU LOST 😂​\n", map);
 			if (map[i][j] == 'P' && map[i][j + 1] == 'X' && key == 2)
-				error_msg("YOU LOST 😂​\n", map);
+				error_touch_enemy("YOU LOST 😂​\n", map);
 		}
 	}
 }

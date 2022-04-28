@@ -6,7 +6,7 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 10:31:51 by bshintak          #+#    #+#             */
-/*   Updated: 2022/04/26 16:59:45 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/28 10:39:12 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	move_player(int key, char **map)
 	touch_enemy(key, map);
 	if (key == 53)
 	{
+		ft_printf("\e[31mError\n\e[0mYou give up? 😲​​\n");
 		free (map);
 		exit (0);
 	}
