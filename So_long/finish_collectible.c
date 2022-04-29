@@ -6,7 +6,7 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 16:58:51 by bshintak          #+#    #+#             */
-/*   Updated: 2022/04/26 10:48:17 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/28 15:37:28 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,25 @@ void	help_get_out(int key, char **map, int i, int j)
 {
 	if (map[i][j - 1] == 'e' && key == 0)
 	{
+		ft_printf("You win ​🥳​\n");
 		free (map);
 		exit (0);
 	}
 	else if (map[i][j + 1] == 'e' && key == 2)
 	{
+		ft_printf("You win ​🥳​\n");
 		free (map);
 		exit (0);
 	}
 	else if (map[i + 1][j] == 'e' && key == 1)
 	{
+		ft_printf("You win ​🥳​\n");
 		free (map);
 		exit (0);
 	}
 	else if (map[i - 1][j] == 'e' && key == 13)
 	{
+		ft_printf("You win ​🥳​\n");
 		free (map);
 		exit (0);
 	}

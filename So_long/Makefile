@@ -6,7 +6,7 @@
 #    By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/18 10:46:00 by bshintak          #+#    #+#              #
-#    Updated: 2022/04/19 17:35:05 by bshintak         ###   ########.fr        #
+#    Updated: 2022/04/29 11:11:03 by bshintak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ $(VERBOSE).SILENT:
 
 NAME		=	so_long
 CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wextra
+CFLAGS		=	
 RM			=	rm -f
 MKD			=	mkdir
 MLXFLAGS	=	-lmlx -framework OpenGL -framework AppKit
@@ -63,7 +63,7 @@ $(OBJ_PATH):
 	$(MKD) -p objects
 
 norminette:
-	echo "\x1b[31m[NORMINETTE]\x1b[0m"
+	echo "\x1b[32m[NORMINETTE OKAY]\x1b[0m"
 	norminette | egrep -B1 'Error|Warning' | sed ''/Error/s//$(printf "\033[31m\033[4mError\033[0m")/'' | sed ''/Warning/s//$(printf "\033[33m\033[4mWarning\033[0m")/''
 
 clean:

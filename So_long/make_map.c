@@ -6,7 +6,7 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 10:31:51 by bshintak          #+#    #+#             */
-/*   Updated: 2022/04/28 10:39:12 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/28 15:35:59 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 
 int	reset_img(char **map)
 {
+	char	*steps;
+
+	steps = ft_itoa_lib((*(window())).count);
 	mlx_clear_window((*window()).mlx, (*window()).win);
 	put_images((*window()), map);
 	mlx_string_put((*window()).mlx, (*window()).win, 20, 22,
-		0x00FFFFFF, ft_itoa_lib((*(window())).count));
+		0x00FFFFFF, steps);
+	free(steps);
 	return (0);
 }
 
@@ -74,7 +78,7 @@ int	move_player(int key, char **map)
 	touch_enemy(key, map);
 	if (key == 53)
 	{
-		ft_printf("\e[31mError\n\e[0mYou give up? 😲​​\n");
+		ft_printf("Did you give up? 😲​​\n");
 		free (map);
 		exit (0);
 	}
@@ -102,7 +106,7 @@ void	make_window(char **map)
 			&(*window()).size_x, &(*window()).size_y);
 	mlx_key_hook((*window()).win, move_player, map);
 	mlx_hook((*window()).win, 17, 0, leave,
-		(void *)"\e[31mError\n\e[0mYou give up? 😲​​\n");
+		(void *)"Did you give up? 😲​​\n");
 	mlx_loop_hook((*window()).mlx, reset_img, map);
 	mlx_loop((*window()).mlx);
 }

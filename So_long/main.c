@@ -6,7 +6,7 @@
 /*   By: bshintak <bshintak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 11:48:52 by bshintak          #+#    #+#             */
-/*   Updated: 2022/04/26 16:00:16 by bshintak         ###   ########.fr       */
+/*   Updated: 2022/04/28 15:28:40 by bshintak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ void	error_msg(char *error, char **map)
 	exit(1);
 }
 
-int	leave(void)
+int	leave(char *msg)
 {
+	ft_printf(msg);
 	exit(0);
 	return (0);
 }
@@ -43,6 +44,8 @@ int	main(int argc, char **argv)
 		error_msg("\e[31mError\n\e[0mToo many arguments 🤡\n", map);
 	if (argc == 2)
 		map = create_map(argv[1]);
+	if (map == NULL)
+		error_msg("\e[31mError\n\e[0mSomething wrong 🙃​\n", map);
 	if (ft_strncmp(ft_strrchr(argv[1], '.'), ".ber", 4) != 0)
 		error_msg("\e[31mError\n\e[0mInvalid file type 😡\n", map);
 	check_map(map);
