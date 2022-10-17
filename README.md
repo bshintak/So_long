@@ -10,12 +10,12 @@
  
  The instructions were given in the [subject](https://github.com/bshintak/So_long/blob/master/subject_solong.pdf).
 
-### Init game
+`Init game`
 <p align="left">
   <img src=https://raw.githubusercontent.com/bshintak/So_long/main/so_long.png />
 </p>
 
-### Finish game
+`Finish game`
 <p align="left">
   <img src=https://raw.githubusercontent.com/bshintak/So_long/main/so_long2.png />
 </p>
