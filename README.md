@@ -4,6 +4,7 @@
  
  [![Stars](https://img.shields.io/github/stars/bshintak/So_long?color=ffff00&label=Stars&logo=Stars&style=?style=flat)](https://github.com/bshintak/So_long)
  [![Size](https://img.shields.io/github/repo-size/bshintak/So_long?color=blue&label=Size&logo=Size&style=?style=flat)](https://github.com/bshintak/So_long)
+ ![Lines of code](https://img.shields.io/tokei/lines/github/bshintak/So_long?color=blueviolet)
  [![Activity](https://img.shields.io/github/last-commit/bshintak/So_long?color=red&label=Last%20Commit&style=flat)](https://github.com/bshintak/So_long)
 
  So_long is a School 42 project. The purpose of this project is to create very small 2D game.
